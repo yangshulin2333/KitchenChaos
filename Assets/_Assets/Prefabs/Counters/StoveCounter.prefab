@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3622783554099240919}
     m_Modifications:
     - target: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -299,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5982774458932550222, guid: 872f390938a57f441b4a43b15e9bb456, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5982774458932550222, guid: 872f390938a57f441b4a43b15e9bb456, type: 3}
       propertyPath: m_LocalPosition.y
