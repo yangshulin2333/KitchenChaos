@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: cuttingCounter
       value: 
       objectReference: {fileID: 6881461815049269543}
+    - target: {fileID: 1612859599334739622, guid: 8349bcc715109984db14ffab7ee50527, type: 3}
+      propertyPath: hasProgressGameObject
+      value: 
+      objectReference: {fileID: 7607887994862794544}
     - target: {fileID: 2869890803096280064, guid: 8349bcc715109984db14ffab7ee50527, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
