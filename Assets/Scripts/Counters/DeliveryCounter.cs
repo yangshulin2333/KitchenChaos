@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DeliveryCounter : BaseCounter
 {
@@ -11,6 +12,13 @@ public class DeliveryCounter : BaseCounter
         {
             if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
             {
+                //当玩家拿着盘子时，尝试将盘子交付
+                DeliveryManager.Instance.DeliveryRecipe(plateKitchenObject);
+
+
+
+
+
                 player.GetKitchenObject().DestroySelf();
             }
         }
