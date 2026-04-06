@@ -7,6 +7,10 @@ public class Player : MonoBehaviour,IKitchenObjectParent
 {
 
     public static Player Instance { get; private set; }
+
+
+    public event EventHandler OnPickedSomething;
+
     // 1. 定义一个新类，继承自 EventArgs (这是 C# 的规矩，所有事件参数都得认这个祖宗)
     public event EventHandler<SelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class SelectedCounterChangedEventArgs : EventArgs
@@ -179,6 +183,13 @@ public class Player : MonoBehaviour,IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+        if (kitchenObject != null)
+        {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+
+
+        }
+
     }
     public KitchenObject GetKitchenObject()
     {

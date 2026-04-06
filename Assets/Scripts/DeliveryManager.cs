@@ -9,6 +9,8 @@ public class DeliveryManager : MonoBehaviour
 
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
 
     public static DeliveryManager Instance { get; private set; }
     [SerializeField] private RecipeListSO recipeListSO;
@@ -85,6 +87,10 @@ public class DeliveryManager : MonoBehaviour
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     waitingRecipeSOList.RemoveAt(i);
+
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
+
                     return;
                 }
             }
@@ -92,6 +98,7 @@ public class DeliveryManager : MonoBehaviour
 
         //没有匹配的食谱
         Debug.Log("玩家没有交付匹配的食谱");
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()
