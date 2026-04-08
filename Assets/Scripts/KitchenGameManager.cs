@@ -21,7 +21,8 @@ public class KitchenGameManager : MonoBehaviour
     private State state;
     private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
-    private float gamePlayingTimer = 30f;
+    private float gamePlayingTimer;
+    private float gamePlayingTimerMax = 10f;
     private void Awake()
     {
         // 把当前挂载在物体上的这个“实体”赋值给静态的 Instance
@@ -46,6 +47,7 @@ public class KitchenGameManager : MonoBehaviour
                 if (countdownToStartTimer < 0f)
                 {
                     state = State.GamePlaying;
+                    gamePlayingTimer = gamePlayingTimerMax;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
@@ -80,6 +82,11 @@ public class KitchenGameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return state == State.GameOver;
+    }
+
+    public float GetGamePlayingTimerNormalized()
+    {
+        return 1 - (gamePlayingTimer/gamePlayingTimerMax);
     }
 }
 
