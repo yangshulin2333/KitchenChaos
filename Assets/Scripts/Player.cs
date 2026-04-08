@@ -53,6 +53,9 @@ public class Player : MonoBehaviour,IKitchenObjectParent
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
+        //如果游戏没开始，别动手
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
@@ -61,7 +64,9 @@ public class Player : MonoBehaviour,IKitchenObjectParent
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        // 这里的逻辑极其简单：
+
+
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
         // 只要眼睛锁定了东西 (selectedCounter != null)
         // 我就动手 (Interact)
         if (selectedCounter != null)

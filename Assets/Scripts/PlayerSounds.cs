@@ -20,7 +20,7 @@ public class PlayerSounds : MonoBehaviour
 
             if(player.IsWalking())
             {
-                Debug.Log("测试玩家行走， 听取声音");
+                //Debug.Log("测试玩家行走， 听取声音");
                 float volume = 11f;
                 SoundManager.Instance.PlayFootstepsSound(player.transform.position, volume);
             }
